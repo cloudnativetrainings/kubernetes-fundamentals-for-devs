@@ -8,6 +8,17 @@ Change into the lab directory:
 cd /workspaces/kubernetes-fundamentals-for-devs/labs/10_secrets
 ```
 
+## Install Vault
+
+You can install Hashicorp vault via helm:
+
+```bash
+helm upgrade --install vault vault \
+  --repo https://helm.releases.hashicorp.com \
+  --namespace vault --create-namespace \
+  --version 0.27.0
+```
+
 ## Configure Vault
 
 Vault CLI is already installed on the Google Cloud Shell and the Helm Chart is already applied in your cluster. However, the vault-0 pod will not become ready automatically.
