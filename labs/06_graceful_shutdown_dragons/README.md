@@ -7,7 +7,7 @@ In this lab you will learn about a possible reason for data loss.
 Change into the lab directory:
 
 ```bash
-cd /workspaces/kubernetes-fundamentals/labs/56_graceful_shutdown_dragons
+cd /workspaces/kubernetes-fundamentals-for-devs/labs/06_graceful_shutdown_dragons
 ```
 
 ## Create the Pods
@@ -36,7 +36,7 @@ kubectl get pods
 kubectl get pods -o wide
 
 # SSH into the Worker Nodes where the Pods are running
-gcloud compute ssh $(kubectl get pod app-a -o jsonpath='{.spec.nodeName}')
+docker exec -it $(kubectl get pod app-a -o jsonpath='{.spec.nodeName}') bash
 
 # [WORKER-NODE] Switch to the default logging directory of the Worker Node
 cd /var/log/containers
@@ -56,9 +56,6 @@ sudo tail -f app-b<TAB>
 # Delete the pod-B
 kubectl delete -f k8s/pod-B.yaml
 ```
-
-> [!TIP]
-> You can check the logs on Grafana!
 
 ## Verification of Graceful Shutdown
 

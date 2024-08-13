@@ -5,7 +5,7 @@ In this training, you will learn about downward API to provide a container some 
 Change into the lab directory:
 
 ```bash
-cd /workspaces/kubernetes-fundamentals/labs/52_downward_api
+cd /workspaces/kubernetes-fundamentals-for-devs/labs/02_downward_api
 ```
 
 ## How it works
@@ -23,6 +23,18 @@ kubectl apply -f k8s/
 
 # Get the environment values
 curl http://${INGRESS_IP}/my-app/downward_api
+```
+
+If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
+
+```bash
+kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 80
+```
+
+Then, reach via below URLs:
+
+```bash
+echo "https://${CODESPACE_NAME}-80.app.github.dev/my-app/downward_api"
 ```
 
 Also, check the `downwardAPI` volume:

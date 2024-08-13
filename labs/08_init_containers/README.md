@@ -5,7 +5,7 @@ Init containers can contain utilities or setup scripts not present in an app ima
 Change into the lab directory:
 
 ```bash
-cd /workspaces/kubernetes-fundamentals/labs/58_init_containers
+cd /workspaces/kubernetes-fundamentals-for-devs/labs/08_init_containers
 ```
 
 ## Deploy apps
@@ -57,5 +57,4 @@ Remove the pods and the service:
 
 ```bash
 kubectl delete -f k8s/
-cd ..
 ```

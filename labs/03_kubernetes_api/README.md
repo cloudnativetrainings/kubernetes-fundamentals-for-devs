@@ -7,7 +7,7 @@ In the training, we will learn about create role based access for a user to gran
 >Navigate to the folder `03_kubernetes_api` from CLI, before you get started.
 
 ```bash
-cd /workspaces/kubernetes-fundamentals/labs/53_kubernetes_api
+cd /workspaces/kubernetes-fundamentals-for-devs/labs/03_kubernetes_api
 ```
 
 ## Inspect definition files and create the servicaccount, clusterrole and clusterrolebinding

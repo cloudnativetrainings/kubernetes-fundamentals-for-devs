@@ -7,7 +7,7 @@ The application implements a CPU and a Memory leak.
 Change into the lab directory:
 
 ```bash
-cd /workspaces/kubernetes-fundamentals/labs/57_resources
+cd /workspaces/kubernetes-fundamentals-for-devs/labs/07_resources
 ```
 
 ## Create the Pod
@@ -33,9 +33,6 @@ leak cpu
 # Check what is happening with the Pod.
 watch -n 1 kubectl top pods
 ```
-
-> [!TIP]
-> You can check the situation on the Grafana dashboard `Kubernetes / Compute Resources / Pod`!
 
 > [!IMPORTANT]
 > Note that the Container does not get restarted. The amount of CPU is limited to 30 MilliCores.
