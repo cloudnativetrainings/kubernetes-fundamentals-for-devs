@@ -35,7 +35,7 @@ kubectl get pods
 # Get the Worker Nodes for the Pods
 kubectl get pods -o wide
 
-# SSH into the Worker Nodes where the Pods are running
+# Open a shell and access the Worker Nodes where the Pods are running
 docker exec -it $(kubectl get pod app-a -o jsonpath='{.spec.nodeName}') bash
 
 # [WORKER-NODE] Switch to the default logging directory of the Worker Node
@@ -45,13 +45,13 @@ cd /var/log/containers
 ls app-*
 
 # [WORKER-NODE] Tail log file for pod-A
-sudo tail -f app-a<TAB>
+tail -f app-a<TAB>
 
 # Delete the pod-A
 kubectl delete -f k8s/pod-A.yaml
 
 # [WORKER-NODE] Tail log file for pod-B
-sudo tail -f app-b<TAB>
+tail -f app-b<TAB>
 
 # Delete the pod-B
 kubectl delete -f k8s/pod-B.yaml
@@ -60,3 +60,12 @@ kubectl delete -f k8s/pod-B.yaml
 ## Verification of Graceful Shutdown
 
 Take a look at the logfiles. Did the graceful shutdown happen on both Pods? If not, why?
+
+<details>
+  <summary>Hint</summary>
+
+You can check the `Dockerfile`s here:
+- [app-a](../00_app/Dockerfile-A)
+- [app-b](../00_app/Dockerfile-B)
+
+</details>
