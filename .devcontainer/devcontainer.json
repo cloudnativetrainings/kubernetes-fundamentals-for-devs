@@ -30,6 +30,5 @@
       80,
       443
     ],
-    "postCreateCommand": "/entrypoint.sh"
+    "postCreateCommand": "/setup_kind_cluster.sh"
   }
-  
