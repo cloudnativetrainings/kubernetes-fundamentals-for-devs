@@ -5,7 +5,7 @@ In this example, we will deploy an app called `my-app` and it will read the appl
 Change into the lab directory:
 
 ```bash
-cd /workspaces/kubernetes-fundamentals-for-devs/labs/01_configmaps
+cd /workspaces/kubernetes-fundamentals-for-devs/01_configmaps
 ```
 
 ## Configure the Application via ConfigMap

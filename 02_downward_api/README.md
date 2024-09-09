@@ -5,7 +5,7 @@ In this training, you will learn about downward API to provide a container some 
 Change into the lab directory:
 
 ```bash
-cd /workspaces/kubernetes-fundamentals-for-devs/labs/02_downward_api
+cd /workspaces/kubernetes-fundamentals-for-devs/02_downward_api
 ```
 
 ## How it works
