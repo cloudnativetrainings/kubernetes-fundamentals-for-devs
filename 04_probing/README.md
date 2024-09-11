@@ -2,6 +2,12 @@
 
 In this training, you will learn about health probes.
 
+> INGRESS_IP environment variable is supposed to be set during the setup. You can always set it this way:
+>
+> ```bash
+> export INGRESS_IP=$(kubectl get svc ingress-nginx-controller -n ingress-nginx -o jsonpath='{.status.loadBalancer.ingress[].ip}')
+> ```
+
 The application implements the following health probes:
 
 - `liveness :` http://${INGRESS_IP}/probe_app/liveness

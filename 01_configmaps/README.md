@@ -8,6 +8,12 @@ Change into the lab directory:
 cd /workspaces/kubernetes-fundamentals-for-devs/01_configmaps
 ```
 
+> INGRESS_IP environment variable is supposed to be set during the setup. You can always set it this way:
+>
+> ```bash
+> export INGRESS_IP=$(kubectl get svc ingress-nginx-controller -n ingress-nginx -o jsonpath='{.status.loadBalancer.ingress[].ip}')
+> ```
+
 ## Configure the Application via ConfigMap
 
 Apply the manifests:
@@ -19,8 +25,6 @@ kubectl apply -f k8s/
 ## Check the output of the application
 
 ```bash
-export INGRESS_IP=$(kubectl get svc ingress-nginx-controller -n ingress-nginx -o jsonpath='{.status.loadBalancer.ingress[].ip}')
-
 curl http://${INGRESS_IP}/my-app
 
 # output:

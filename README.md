@@ -7,6 +7,7 @@ This training environment is designed to work with GitHub Codespaces and/or devc
 Please run the `pre-checks.sh` script to make sure that all required components are running:
 
 ```bash
+source ~/.bashrc
 ./pre-checks.sh
 ```
 
