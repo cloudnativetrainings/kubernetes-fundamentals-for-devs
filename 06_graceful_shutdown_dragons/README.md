@@ -26,32 +26,18 @@ kubectl get pods
 
 ## Watch the log files of the Pods
 
-> [!IMPORTANT]
-> Note that `kubectl logs -f ...` command will not work here, due to the logging info will get lost after termination of the Pods.
->
-> Note you will additional terminals for doing this.
-
 ```bash
-# Get the Worker Nodes for the Pods
-kubectl get pods -o wide
+# Check if the pods are Running
+kubectl get pods
 
-# Open a shell and access the Worker Nodes where the Pods are running
-docker exec -it $(kubectl get pod app-a -o jsonpath='{.spec.nodeName}') bash
-
-# [WORKER-NODE] Switch to the default logging directory of the Worker Node
-cd /var/log/containers
-
-# [WORKER-NODE] Verify the log files are present
-ls app-*
-
-# [WORKER-NODE] Tail log file for pod-A
-tail -f app-a<TAB>
+# [SECOND SHELL] Open another shell and start tailing logs for app-a
+kubectl logs app-a -f
 
 # Delete the pod-A
 kubectl delete -f k8s/pod-A.yaml
 
-# [WORKER-NODE] Tail log file for pod-B
-tail -f app-b<TAB>
+# [SECOND SHEL] Tail log file for pod-B
+kubectl logs app-b -f
 
 # Delete the pod-B
 kubectl delete -f k8s/pod-B.yaml
@@ -67,5 +53,17 @@ Take a look at the logfiles. Did the graceful shutdown happen on both Pods? If n
 You can check the `Dockerfile`s here:
 - [app-a](../00_app/Dockerfile-A)
 - [app-b](../00_app/Dockerfile-B)
+
+Start the pods again, and check the PID 1:
+
+```bash
+kubectl create -f k8s/
+
+# Pod-A:
+kubectl exec -it app-a -- ps aux
+
+# Pod-B:
+kubectl exec -it app-b -- ps aux
+```
 
 </details>
