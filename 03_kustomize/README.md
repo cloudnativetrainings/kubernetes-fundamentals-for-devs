@@ -53,6 +53,15 @@ cat overlays/prod/kustomization.yaml
 
 # Deploy using Kustomize
 
+## Create Namespaces
+
+In this demo, we assume the `dev` and `prod` workloads are deployed on the respective namespaces:
+
+```bash
+kubectl create namespace dev
+kubectl create namespace prod
+```
+
 ## Deploy dev
 
 First, inspect the generated manifest:
@@ -140,4 +149,8 @@ echo "https://${CODESPACE_NAME}-80.app.github.dev/prod"
 # delete the deployments:
 kubectl delete -k overlays/dev
 kubectl delete -k overlays/prod
+
+# delete the namespaces:
+kubectl delete namespace dev
+kubectl delete namespace prod
 ```
